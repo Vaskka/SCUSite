@@ -100,14 +100,14 @@ public class CourseTable {
 	 * 向总课程列表添加课程
 	 * @param l 添加的课程
 	 */
-	public void dumpLession(Lession l) {
+	void dumpLession(Lession l) {
 		rawLessions.add(l);
 	}
 	
 	/**
 	 * 处理rawLessions
 	 */
-	public void dealRawLessions() {
+	void dealRawLessions() {
 		this.lessionCount = this.rawLessions.size();
 		this.lessionsFriday = new ArrayList<Lession>();
 		this.lessionsMonday = new ArrayList<Lession>();
@@ -117,11 +117,14 @@ public class CourseTable {
 		this.lessionsThursday = new ArrayList<Lession>();
 		this.lessionsTuesday = new ArrayList<Lession>();
 		this.lessionsWednesday = new ArrayList<Lession>();
-		
+
 		for (Lession ls : this.rawLessions) {
+//			ls.debugAllInfo();
 			String chooseStr = StringUtils.deleteWhitespace(ls.getWeek());
+//			Debug.L(chooseStr);
 			// 无星期数add进其他课
 			if (chooseStr.equals("")) {
+
 				this.lessionsOther.add(ls);
 			}
 			else {
@@ -132,13 +135,11 @@ public class CourseTable {
 					Lession anotherLession = (Lession) ls.clone();
 					
 					String reg = "(^.*?)&(.*$)";
-//					String reWithNumber = "(\\d+)&(\\d+)";
-//					Pattern pattern = Pattern.compile(reWithNumber);
 					
 					// 此处为提高效率不使用正则
 					oneLession.setWeek(String.valueOf(StringUtils.deleteWhitespace(ls.getWeek()).charAt(0)));
 					anotherLession.setWeek(String.valueOf(StringUtils.deleteWhitespace(ls.getWeek()).charAt(2)));
-
+					
 					Pattern pattern;
 					Matcher match;
 					// 将周次分开
@@ -154,6 +155,27 @@ public class CourseTable {
 					match.find();
 					oneLession.setIndex(match.group(1));
 					anotherLession.setIndex(match.group(2));
+					
+					// 将校区分开
+					pattern = Pattern.compile(reg);
+					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getSchoolArea()));
+					match.find();
+					oneLession.setSchoolArea(match.group(1));
+					anotherLession.setSchoolArea(match.group(2));
+					
+					// 将教学楼分开
+					pattern = Pattern.compile(reg);
+					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getPlace()));
+					match.find();
+					oneLession.setPlace(match.group(1));
+					anotherLession.setPlace(match.group(2));
+					
+					// 将教室分开
+					pattern = Pattern.compile(reg);
+					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getClassRoom()));
+					match.find();
+					oneLession.setClassRoom(match.group(1));
+					anotherLession.setClassRoom(match.group(2));
 					
 					// 利用星期数将两节课分别add进相应的List
 					this.selectWithWeekNum(Integer.valueOf(oneLession.getWeek()), oneLession);
@@ -257,7 +279,7 @@ public class CourseTable {
 	 * 设置总学分
 	 * @param allScore
 	 */
-	public void setAllScore(String allScore) {
+	void setAllScore(String allScore) {
 		this.allScore = allScore;
 	}
 	

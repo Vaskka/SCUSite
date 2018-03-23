@@ -1,5 +1,10 @@
 package com.vaskka.spiderscu;
 
+/**
+ * 课程信息
+ * @author czm
+ *
+ */
 public class Lession {
 	
 	/**
@@ -156,7 +161,15 @@ public class Lession {
 	public void setPlace(String place) {
 		this.place = place;
 	}
-
+	
+	/**
+	 * 追加上课地点信息
+	 * @param place
+	 */
+	public void addPlace(String place) {
+		this.place += place;
+	}
+	
 	/**
 	 * 获取课序号
 	 * @return the lessionIndexNum
@@ -326,6 +339,14 @@ public class Lession {
 	}
 	
 	/**
+	 * 追加校区信息
+	 * @param schoolArea
+	 */
+	public void addSchoolArea(String schoolArea) {
+		this.schoolArea += schoolArea;
+	}
+	
+	/**
 	 * 获取教室
 	 * @return 上课教室
 	 */
@@ -340,6 +361,37 @@ public class Lession {
 	public void setClassRoom(String classRoom) {
 		this.classRoom = classRoom;
 	}
+	
+	/**
+	 * 追加教室信息
+	 * @param classRoom
+	 */
+	public void addClassRoom(String classRoom) {
+		this.classRoom += classRoom;
+	}
+	
+	/**
+	 * debug用
+	 */
+	void debugAllInfo() {
+		Debug.L(this.lessionNum);
+		Debug.L(this.name);
+		Debug.L(this.lessionIndexNum);
+		Debug.L(this.score);
+		Debug.L(this.attr);
+		Debug.L(this.exam);
+		Debug.L(this.teacher);
+		Debug.L(this.readWay);
+		Debug.L(this.chooseState);
+		Debug.L(this.weekNum);
+		Debug.L(this.week);
+		Debug.L(this.index);
+		Debug.L(this.schoolArea);
+		Debug.L(this.place);
+		Debug.L(this.classRoom);
+		
+	}
+	
 	
 	/**
 	 * deepcopy 得到Lession新实例

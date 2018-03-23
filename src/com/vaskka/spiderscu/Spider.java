@@ -106,6 +106,11 @@ public class Spider {
 	private static CourseTable table = null;
 	
 	/**
+	 * cookies
+	 */
+	private static String cookies = null;
+	
+	/**
 	 * 构造爬虫新实例
 	 */
 	public Spider() {
@@ -226,7 +231,8 @@ public class Spider {
 			while ((line = buffer.readLine()) != null) {
 				resultBuffer.append(line);
 			}
-			
+			Spider.cookies = connection.getHeaderField("Set-Cookie");
+
 			result = resultBuffer.toString();
 			
 		}
@@ -241,6 +247,7 @@ public class Spider {
 				if (out != null) {
 					out.close();
 				}
+
 			}
 			catch (IOException e) {
 				return e.getMessage();
@@ -267,8 +274,12 @@ public class Spider {
 		conn.setRequestProperty("Referer", Spider.referer);
 		conn.setRequestProperty("Accept-Encoding", Spider.acceptEncoding);
 		conn.setRequestProperty("Accept-Language", Spider.acceptLanguage);
-		conn.setRequestProperty("Cookie", "UM_distinctid=1606dcc2a6c22-07433e1763e643-c303767-e1000-1606dcc2a6d8c; JSESSIONID=dcaDGQ7dbMS7x5pWHOdjw");
-	
+		
+		if (cookies != null) {
+			conn.setRequestProperty("Cookie", cookies);
+		}
+		
+		
 	}
 	
 	/**
@@ -306,9 +317,11 @@ public class Spider {
 			Lession newLession = null;
 			for (Object o : result) {
 				String index = o.toString();
-				StringUtils.deleteWhitespace(index);
+				index = StringUtils.deleteWhitespace(index);
+				
 				// 检测到标记且在不是第一个的情况下dump进table
 				if (index.equals(flag)) {
+
 					count = 0;
 					if (newLession != null) {
 						table.dumpLession(newLession);
@@ -317,7 +330,7 @@ public class Spider {
 					continue;
 				}
 				
-				if (newLession != null && (!index.equals(""))) {
+				if (newLession != null) {
 					switch (count) {
 						case 0:
 							newLession.setLessionNum(index);
@@ -348,57 +361,83 @@ public class Spider {
 							count++;
 							break;
 						case 7:
-							newLession.setReadWay(index);
+							
 							count++;
 							break;
 						case 8:
-							newLession.setChooseState(index);
+							newLession.setReadWay(index);
+							
 							count++;
 							break;
 						case 9:
-							newLession.setWeekNum(index);
+							newLession.setChooseState(index);
+							
 							count++;
 							break;
 						case 10:
-							newLession.setWeek(index);
+							newLession.setWeekNum(index);
+							
 							count++;
 							break;
 						case 11:
-							newLession.setIndex(index);
+							newLession.setWeek(index);
+							
 							count++;
 							break;
 						case 12:
-							newLession.setSchoolArea(index);
+							newLession.setIndex(index);
+							
 							count++;
 							break;
 						case 13:
-							newLession.setPlace(index);
+							newLession.setSchoolArea(index);
+							
 							count++;
 							break;
 						case 14:
-							newLession.setClassRoom(index);
+							newLession.setPlace(index);
+							
 							count++;
 							break;
 						case 15:
-							//调整一周上多次的课
-							newLession.addWeekNum(" & " + index);
+							newLession.setClassRoom(index);
+	
 							count++;
 							break;
 						case 16:
-							newLession.addWeek(" & " + index);
+							//调整一周上多次的课
+							newLession.addWeekNum(" & " + index);
+							
 							count++;
 							break;
 						case 17:
+							newLession.addWeek(" & " + index);
+							count++;
+							break;
+						case 18:
 							newLession.addIndex(" & " + index);
+							count++;
+							break;
+						case 19:
+							newLession.addSchoolArea(" & " + index);
+							count++;
+							break;
+						case 20:
+							newLession.addPlace(" & " + index);
+							count++;
+							break;
+						case 21:
+							newLession.addClassRoom(" & " + index);
 							count++;
 							break;
 					}
 				}
 
 			}
+			// 将最后一个也dump进table
+			table.dumpLession(newLession);
 			// 设置总学分
 			table.setAllScore(allScore);
-
 		} 
 		catch (XpathSyntaxErrorException e) {
 			// TODO Auto-generated catch block
@@ -418,7 +457,7 @@ public class Spider {
 			throw new Exception("用户名或密码不合法");
 		}
 		response = post(loginSite, "zjh=" + username + "&mm=" + password);
-	
+
 		response = get(courseTableSite + "&zjh=" + username + "&mm=" + password);
 	}
 	
@@ -431,10 +470,12 @@ public class Spider {
 			this.getResponse();
 			this.dealResponse();
 			// TODO table 格式化rawLessions
+			
 			table.dealRawLessions();
 			return table;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return null;
 		}
 		
