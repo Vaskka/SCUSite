@@ -12,7 +12,7 @@
 
 *  然后使用CourseTable对象的getMonday(); ... getFriday(); ... 等方法就能返回包含这天全部Lession的List了
 
-    List<Lession> Mondaylessions = table.getMonday();
+    List&lt;Lession&gt; Mondaylessions = table.getMonday();
   
 ### Lession的数据结构
 >  星期数
