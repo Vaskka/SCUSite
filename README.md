@@ -30,3 +30,7 @@
 >  周次
 >  校区
 >  教师
+
+## 依赖库:
+    XPath引擎：https://github.com/zhegexiaohuozi/JsoupXpath
+    
