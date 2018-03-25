@@ -1,8 +1,8 @@
 /*
- * Ë¼Â·
- * 1 post·½·¨Íê³ÉµÇÂ½
- * 2 ÄÃµ½cookiesÀ´getº¬ÓĞ¿Î³Ì±íµÄÍøÒ³
- * 3 ¶Ô»ñµÃµÄrowÊı¾İ½øĞĞ½âÎö·â×°Îª½á¹¹»¯Êı¾İ
+ * æ€è·¯
+ * 1 postæ–¹æ³•å®Œæˆç™»é™†
+ * 2 æ‹¿åˆ°cookiesæ¥getå«æœ‰è¯¾ç¨‹è¡¨çš„ç½‘é¡µ
+ * 3 å¯¹è·å¾—çš„rowæ•°æ®è¿›è¡Œè§£æå°è£…ä¸ºç»“æ„åŒ–æ•°æ®
 */
 package com.vaskka.spiderscu;
 
@@ -24,49 +24,49 @@ import cn.wanghaomiao.xpath.model.JXDocument;
 
 
 /**
- * »ùÓÚhttpÍê³É¶Ô½ÌÑ§ÍøÕ¾ĞÅÏ¢µÄÅÀÈ¡
+ * åŸºäºhttpå®Œæˆå¯¹æ•™å­¦ç½‘ç«™ä¿¡æ¯çš„çˆ¬å–
  * @author czm
  *
  */
 public class Spider {
 	
 	/**
-	 * Ä¬ÈÏµÇÂ½µÄurl
+	 * é»˜è®¤ç™»é™†çš„url
 	 */
 	private static String loginSite = "http://zhjw.scu.edu.cn/loginAction.do";
 	
 	/**
-	 * ¿Î³Ì±íµÄurl
+	 * è¯¾ç¨‹è¡¨çš„url
 	 */
 	private static String courseTableSite = "http://zhjw.scu.edu.cn/xkAction.do?actionType=6";
 	
 	/**
-	 * ÓÃ»§Ãû
+	 * ç”¨æˆ·å
 	 */
 	private static String username = null;
 	
 	/**
-	 * ÃÜÂë
+	 * å¯†ç 
 	 */
 	private static String password = null;
 	
 	/**
-	 * Ö¸¶¨´úÀí
+	 * æŒ‡å®šä»£ç†
 	 */
 	private static String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36";
 	
 	/**
-	 * Á¬½Ó·½Ê½
+	 * è¿æ¥æ–¹å¼
 	 */
 	private static String connection = "Keep-Alive";
 	
 	/**
-	 * ½ÓÊÜÀàĞÍ
+	 * æ¥å—ç±»å‹
 	 */
 	private static String accept = "*/*";
 	
 	/**
-	 * POST¹¹ÔìHeader
+	 * POSTæ„é€ Header
 	 */
 	private static String host = "zhjw.scu.edu.cn";
 	private static String contentLength = "18";
@@ -79,29 +79,32 @@ public class Spider {
 //	private static String cacheControl = "max-age=0";
 	
 	/**
-	 * ÇëÇó×î³¤Ê±¼ä
+	 * è¯·æ±‚æœ€é•¿æ—¶é—´
 	 */
 	private static int timeOut = 5000;
 	
 	/**
-	 * GETÇëÇóµÄÒì³£ĞÅÏ¢
+	 * GETè¯·æ±‚çš„å¼‚å¸¸ä¿¡æ¯
 	 */
 	private static String getExceptionMessage = "GET Exception when get http request. The Exception message is ";
 	
+	/**
+	 * POSTè¯·æ±‚å¼‚å¸¸ä¿¡æ¯
+	 */
 	private static String postExceptionMessage = "POST Exception when get http request. The Exception message is ";
 	
 	/**
-	 * Ä¬ÈÏ±àÂë
+	 * é»˜è®¤ç¼–ç 
 	 */
 	private static String defaultCharset = "gb2312";
 	
 	/**
-	 * ÅÀÈ¡µ½µÄĞÅÏ¢
+	 * çˆ¬å–åˆ°çš„ä¿¡æ¯
 	 */
 	private static String response = null;
 	
 	/**
-	 * ¿Î³Ì±í
+	 * è¯¾ç¨‹è¡¨
 	 */
 	private static CourseTable table = null;
 	
@@ -111,16 +114,21 @@ public class Spider {
 	private static String cookies = null;
 	
 	/**
-	 * ¹¹ÔìÅÀ³æĞÂÊµÀı
+	 * æŒ‡å®šSpiderçš„å­—ç¬¦é›†
+	 */
+	private static String CHARSET = null;
+	
+	/**
+	 * æ„é€ çˆ¬è™«æ–°å®ä¾‹
 	 */
 	public Spider() {
 		
 	}
 	
 	/**
-	 * ¹¹ÔìÅÀ³æĞÂÊµÀı
-	 * @param un ¿Î³ÌÍøÕ¾ÓÃ»§Ãû£¨Ñ§ºÅ£©
-	 * @param password ¿Î³ÌÍøÕ¾ÃÜÂë
+	 * æ„é€ çˆ¬è™«æ–°å®ä¾‹ , ä½¿ç”¨ç³»ç»Ÿé»˜è®¤ç¼–ç 
+	 * @param un è¯¾ç¨‹ç½‘ç«™ç”¨æˆ·åï¼ˆå­¦å·ï¼‰
+	 * @param password è¯¾ç¨‹ç½‘ç«™å¯†ç 
 	 */
 	public Spider(String un, String psw) {
 		username = un;
@@ -128,17 +136,30 @@ public class Spider {
 	}
 	
 	/**
-	 * GET ·½·¨ÏòurlÇëÇóÊı¾İ
-	 * @param url ÇëÇóµÄurl
-	 * @return url·µ»ØµÄresponseĞÅÏ¢
+	 * ä½¿ç”¨ç”¨æˆ·åå¯†ç å’ŒæŒ‡å®šçš„å­—ç¬¦é›†æ„é€ Spideræ–°å®ä¾‹
+	 * @param un
+	 * @param psw
+	 * @param charset
+	 */
+	public Spider(String un, String psw, String charset) {
+		username = un;
+		password = psw;
+		CHARSET = charset;
+	}
+	
+	
+	/**
+	 * GET æ–¹æ³•å‘urlè¯·æ±‚æ•°æ®
+	 * @param url è¯·æ±‚çš„url
+	 * @return urlè¿”å›çš„responseä¿¡æ¯
 	 */
 	private String get(String url) {
 		BufferedReader in = null;
 		try {
 			URL siteUrl = new URL(url);
-			// ´ò¿ªÁ´½Ó
+			// æ‰“å¼€é“¾æ¥
 			URLConnection connection = siteUrl.openConnection();
-			// ÉèÖÃHeader
+			// è®¾ç½®Header
 			connection.setRequestProperty("accept", Spider.accept);
 			connection.setRequestProperty("connection", Spider.connection);
 			connection.setRequestProperty("user-agent", Spider.userAgent);
@@ -149,15 +170,15 @@ public class Spider {
 			
 			this.setData(connection);
 			
-			// ½¨Á¢Á´½Ó
+			// å»ºç«‹é“¾æ¥
 			connection.connect();
 			
-			// Ê¹ÓÃBufferedReader¶ÁÈ¡Êı¾İÏìÓ¦
-			in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			// ä½¿ç”¨BufferedReaderè¯»å–æ•°æ®å“åº”
+			in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "GBK"));
 			StringBuffer resultBuffered = new StringBuffer();
 			
 			String line = "";
-			// ÖğĞĞ¶ÁÈë
+			// é€è¡Œè¯»å…¥
 			while ((line = in.readLine()) != null) {
 				resultBuffered.append(line);
 			}
@@ -182,26 +203,27 @@ public class Spider {
 
 	
 	/**
-	 * ½«½á¹û±àÂëÎªÖ¸¶¨µÄ×Ö·û¼¯
-	 * @param source ´ı×ªÂëµÄ×Ö·û´®
-	 * @param charset Ö¸¶¨µÄ×Ö·û¼¯
-	 * @return ¾­¹ı×ª»¯µÄ×Ö·û´®
-	 * @throws UnsupportedEncodingException ²»Ö§³ÖµÄ±àÂëÒì³£
+	 * å°†ç»“æœç¼–ç ä¸ºæŒ‡å®šçš„å­—ç¬¦é›†
+	 * @param source å¾…è½¬ç çš„å­—ç¬¦ä¸²
+	 * @param sourceCharset æœ¬åœ°çš„ç¼–ç 
+	 * @param destCharset æŒ‡å®šçš„å­—ç¬¦é›†
+	 * @return ç»è¿‡è½¬åŒ–çš„å­—ç¬¦ä¸²
+	 * @throws UnsupportedEncodingException ä¸æ”¯æŒçš„ç¼–ç å¼‚å¸¸
 	 */
-	public static String setToEncode(String source, String charset) throws UnsupportedEncodingException {
+	private static String setToEncode(String source, String sourceCharset, String destCharset) throws UnsupportedEncodingException {
 		if (source != null) {
-			byte[] strByte = source.getBytes();
+			byte[] strByte = source.getBytes(sourceCharset);
 			
-			return new String(strByte, charset);
+			return new String(strByte, destCharset);
 		}
 		
 		return null;
 	}
 	
 	/**
-	 * ÏòÖ¸¶¨url·¢ËÍpostÇëÇó
-	 * @param url Ö¸¶¨postµÄurl
-	 * @param params ´«µİµÄ²ÎÊı
+	 * å‘æŒ‡å®šurlå‘é€postè¯·æ±‚
+	 * @param url æŒ‡å®špostçš„url
+	 * @param params ä¼ é€’çš„å‚æ•°
 	 * @return
 	 */
 	private String post(String url, String params) {
@@ -215,7 +237,7 @@ public class Spider {
 			connection.setDoInput(true);
 			connection.setUseCaches(false);
 			connection.setInstanceFollowRedirects(true);
-			// ÉèÖÃÇëÇó·½Ê½ÎªPOST
+			// è®¾ç½®è¯·æ±‚æ–¹å¼ä¸ºPOST
 			connection.setRequestMethod("POST");
 			this.setData(connection);
 			connection.connect();
@@ -258,7 +280,7 @@ public class Spider {
 	}
 	
 	/**
-	 * ¹¹ÔìHeader
+	 * æ„é€ Header
 	 * @param conn
 	 */
 	private void setData(URLConnection conn) {
@@ -283,28 +305,28 @@ public class Spider {
 	}
 	
 	/**
-	 * ´¦Àí»ñµÃµÄResponseÊı¾İ
-	 * @throws Exception ÇëÇóµÄresponseÎª¿Õ
+	 * å¤„ç†è·å¾—çš„Responseæ•°æ®
+	 * @throws Exception è¯·æ±‚çš„responseä¸ºç©º
 	 */
 	private void dealResponse() throws Exception {
-		//responseÎª¿ÕÍË³ö
+		//responseä¸ºç©ºé€€å‡º
 		if (response == null) {
-			throw new Exception("ÇëÇó´íÎó");
+			throw new Exception("è¯·æ±‚é”™è¯¯");
 		}
 		
 	
 		table = new CourseTable();
 		
-		// ±êÖ¾Ò»¸ö½áÊøµÄflag
+		// æ ‡å¿—ä¸€ä¸ªç»“æŸçš„flag
 		String xpathFlag = "//table[5]/tbody/tr/td/table/tbody/tr[1]/td[1]/text()";
 		
-		// ÄÃµ½ËùÓĞµÄtd
+		// æ‹¿åˆ°æ‰€æœ‰çš„td
 		String xpath = "//table[5]/tbody/tr/td/table/tbody/tr/td/text()";
 		
-		// ÄÃµ½×ÜÑ§·Ö
+		// æ‹¿åˆ°æ€»å­¦åˆ†
 		String xpathAllScore = "//table[6]/tbody/tr/td/div/text()";
 		
-		// ÊµÀı»¯xpath´¦ÀíÒıÇæ
+		// å®ä¾‹åŒ–xpathå¤„ç†å¼•æ“
 		JXDocument jxflag = new JXDocument(response);
 		JXDocument jxd = new JXDocument(response);
 		JXDocument jxAllScore = new JXDocument(response);
@@ -312,14 +334,14 @@ public class Spider {
 			String flag = (String) jxflag.sel(xpathFlag).get(0);
 			List<Object> result = jxd.sel(xpath);
 			String allScore = (String) jxAllScore.sel(xpathAllScore).get(0);
-			// ¼ÆÊıÆ÷
+			// è®¡æ•°å™¨
 			int count = 0;
 			Lession newLession = null;
 			for (Object o : result) {
 				String index = o.toString();
 				index = StringUtils.deleteWhitespace(index);
 				
-				// ¼ì²âµ½±ê¼ÇÇÒÔÚ²»ÊÇµÚÒ»¸öµÄÇé¿öÏÂdump½øtable
+				// æ£€æµ‹åˆ°æ ‡è®°ä¸”åœ¨ä¸æ˜¯ç¬¬ä¸€ä¸ªçš„æƒ…å†µä¸‹dumpè¿›table
 				if (index.equals(flag)) {
 
 					count = 0;
@@ -405,7 +427,7 @@ public class Spider {
 							count++;
 							break;
 						case 16:
-							//µ÷ÕûÒ»ÖÜÉÏ¶à´ÎµÄ¿Î
+							//è°ƒæ•´ä¸€å‘¨ä¸Šå¤šæ¬¡çš„è¯¾
 							newLession.addWeekNum(" & " + index);
 							
 							count++;
@@ -434,9 +456,9 @@ public class Spider {
 				}
 
 			}
-			// ½«×îºóÒ»¸öÒ²dump½øtable
+			// å°†æœ€åä¸€ä¸ªä¹Ÿdumpè¿›table
 			table.dumpLession(newLession);
-			// ÉèÖÃ×ÜÑ§·Ö
+			// è®¾ç½®æ€»å­¦åˆ†
 			table.setAllScore(allScore);
 		} 
 		catch (XpathSyntaxErrorException e) {
@@ -449,12 +471,12 @@ public class Spider {
 	}
 	
 	/**
-	 * »ñµÃResponse
-	 * @throws Exception ÓÃ»§Ãû»òÃÜÂë²»ºÏ·¨£¨null£©
+	 * è·å¾—Response
+	 * @throws Exception ç”¨æˆ·åæˆ–å¯†ç ä¸åˆæ³•ï¼ˆnullï¼‰
 	 */
 	private void getResponse() throws Exception {
 		if (username == null || password == null) {
-			throw new Exception("ÓÃ»§Ãû»òÃÜÂë²»ºÏ·¨");
+			throw new Exception("ç”¨æˆ·åæˆ–å¯†ç ä¸åˆæ³•");
 		}
 		response = post(loginSite, "zjh=" + username + "&mm=" + password);
 
@@ -462,14 +484,21 @@ public class Spider {
 	}
 	
 	/**
-	 * ¸ù¾İ¿Î³ÌÖĞĞÄ»ñµÃ¿Î±í
-	 * @return ½á¹¹»¯¿Î±í
+	 * æ ¹æ®è¯¾ç¨‹ä¸­å¿ƒè·å¾—è¯¾è¡¨
+	 * @return ç»“æ„åŒ–è¯¾è¡¨
 	 */
 	public CourseTable getCourseTable() {
 		try {
 			this.getResponse();
+			
+			// å¦‚æœæŒ‡å®šå­—ç¬¦é›†å°±è½¬æ¢ç¼–ç 
+			if (CHARSET != null) {
+				setToEncode(response, "GBK", CHARSET);
+				
+			}
+			
 			this.dealResponse();
-			// TODO table ¸ñÊ½»¯rawLessions
+			// TODO table æ ¼å¼åŒ–rawLessions
 			
 			table.dealRawLessions();
 			return table;

@@ -10,9 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * <p>
- * ¾­½á¹¹»¯´¦ÀíµÄ¿Î±í<br>
- * Ê¹ÓÃ8¸öList·Ö±ğ±£´æÖÜÒ»ÖÁÖÜÈÕÒÔ¼°ÊµÑµµÈËùÓĞ¿Î<br>
- * ListÒÑ°´ÕÕ½ÚÊıÅÅĞò<br>
+ * ç»ç»“æ„åŒ–å¤„ç†çš„è¯¾è¡¨<br>
+ * ä½¿ç”¨8ä¸ªListåˆ†åˆ«ä¿å­˜å‘¨ä¸€è‡³å‘¨æ—¥ä»¥åŠå®è®­ç­‰æ‰€æœ‰è¯¾<br>
+ * Listå·²æŒ‰ç…§èŠ‚æ•°æ’åº<br>
  * </p>
  * @author czm
  *
@@ -20,67 +20,67 @@ import org.apache.commons.lang3.StringUtils;
 public class CourseTable {
 	
 	/**
-	 * ËùÓĞµÄ¿ÎµÄList
+	 * æ‰€æœ‰çš„è¯¾çš„List
 	 */
 	private List<Lession> rawLessions = null;
 	
 	/**
-	 * ¿Î³Ì×ÜÊı
+	 * è¯¾ç¨‹æ€»æ•°
 	 */
 	private int lessionCount = 0;
 	
 	/**
-	 * ×ÜÑ§·Ö
+	 * æ€»å­¦åˆ†
 	 */
 	private String allScore = "";
 	
 	/**
-	 * ĞÇÆÚÒ»µÄËùÓĞ¿Î
+	 * æ˜ŸæœŸä¸€çš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsMonday = null;
 	
 	/**
-	 * ĞÇÆÚ¶şµÄËùÓĞ¿Î
+	 * æ˜ŸæœŸäºŒçš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsTuesday = null;
 	
 	/**
-	 * ĞÇÆÚÈıµÄËùÓĞ¿Î
+	 * æ˜ŸæœŸä¸‰çš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsWednesday = null;
 	
 	/**
-	 * ĞÇÆÚËÄµÄËùÓĞ¿Î
+	 * æ˜ŸæœŸå››çš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsThursday = null;
 	
 	/**
-	 * ĞÇÆÚÎåµÄËùÓĞ¿Î
+	 * æ˜ŸæœŸäº”çš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsFriday = null;
 	
 	/**
-	 * ĞÇÆÚÁùµÄËùÓĞ¿Î
+	 * æ˜ŸæœŸå…­çš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsSaturday = null;
 	
 	/**
-	 * ĞÇÆÚÈÕµÄËùÓĞ¿Î
+	 * æ˜ŸæœŸæ—¥çš„æ‰€æœ‰è¯¾
 	 */
 	private List<Lession> lessionsSunday = null;
 	
 	/**
-	 * ÆäËûÊ±¼ä µÄ¿Î
+	 * å…¶ä»–æ—¶é—´ çš„è¯¾
 	 */
 	private List<Lession> lessionsOther = null;
 	
 	/**
-	 * ÒÔ ×Ü¿Î³ÌÊı ¹¹Ôì¿Î³Ì±íĞÂÊµÀı
-	 * @param lessionNum ×ÜµÄlessionÊıÄ¿
+	 * ä»¥ æ€»è¯¾ç¨‹æ•° æ„é€ è¯¾ç¨‹è¡¨æ–°å®ä¾‹
+	 * @param lessionNum æ€»çš„lessionæ•°ç›®
 	 */
 	public CourseTable(int lessionNum) {
 		if (lessionNum <= 0) {
-			throw new NumberFormatException("ÊäÈë¿Î³Ì×ÜÊı²»ºÏ·¨");
+			throw new NumberFormatException("è¾“å…¥è¯¾ç¨‹æ€»æ•°ä¸åˆæ³•");
 		}
 		
 		this.lessionCount = lessionNum;
@@ -90,22 +90,22 @@ public class CourseTable {
 	}
 	
 	/**
-	 * ¹¹Ôì¿Î³Ì±íĞÂÊµÀı
+	 * æ„é€ è¯¾ç¨‹è¡¨æ–°å®ä¾‹
 	 */
 	public CourseTable() {
 		this.rawLessions = new ArrayList<Lession>();
 	}
 	
 	/**
-	 * Ïò×Ü¿Î³ÌÁĞ±íÌí¼Ó¿Î³Ì
-	 * @param l Ìí¼ÓµÄ¿Î³Ì
+	 * å‘æ€»è¯¾ç¨‹åˆ—è¡¨æ·»åŠ è¯¾ç¨‹
+	 * @param l æ·»åŠ çš„è¯¾ç¨‹
 	 */
 	void dumpLession(Lession l) {
 		rawLessions.add(l);
 	}
 	
 	/**
-	 * ´¦ÀírawLessions
+	 * å¤„ç†rawLessions
 	 */
 	void dealRawLessions() {
 		this.lessionCount = this.rawLessions.size();
@@ -122,81 +122,81 @@ public class CourseTable {
 //			ls.debugAllInfo();
 			String chooseStr = StringUtils.deleteWhitespace(ls.getWeek());
 //			Debug.L(chooseStr);
-			// ÎŞĞÇÆÚÊıadd½øÆäËû¿Î
+			// æ— æ˜ŸæœŸæ•°addè¿›å…¶ä»–è¯¾
 			if (chooseStr.equals("")) {
 
 				this.lessionsOther.add(ls);
 			}
 			else {
-				// ´¦ÀíÒ»ÖÜ¶à½Ú
+				// å¤„ç†ä¸€å‘¨å¤šèŠ‚
 				if (chooseStr.contains("&")) {
-					/* ½²Ò»ÖÜ¶à½Ú·Ö¿ª´æ´¢ */
+					/* è®²ä¸€å‘¨å¤šèŠ‚åˆ†å¼€å­˜å‚¨ */
 					Lession oneLession = (Lession) ls.clone();
 					Lession anotherLession = (Lession) ls.clone();
 					
 					String reg = "(^.*?)&(.*$)";
 					
-					// ´Ë´¦ÎªÌá¸ßĞ§ÂÊ²»Ê¹ÓÃÕıÔò
+					// æ­¤å¤„ä¸ºæé«˜æ•ˆç‡ä¸ä½¿ç”¨æ­£åˆ™
 					oneLession.setWeek(String.valueOf(StringUtils.deleteWhitespace(ls.getWeek()).charAt(0)));
 					anotherLession.setWeek(String.valueOf(StringUtils.deleteWhitespace(ls.getWeek()).charAt(2)));
 					
 					Pattern pattern;
 					Matcher match;
-					// ½«ÖÜ´Î·Ö¿ª
+					// å°†å‘¨æ¬¡åˆ†å¼€
 					pattern = Pattern.compile(reg);
 					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getWeekNum()));
 					match.find();
 					oneLession.setWeekNum(match.group(1));
 					anotherLession.setWeekNum(match.group(2));
 					
-					// ½«½ÚÊı·Ö¿ª
+					// å°†èŠ‚æ•°åˆ†å¼€
 					pattern = Pattern.compile(reg);
 					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getIndex()));
 					match.find();
 					oneLession.setIndex(match.group(1));
 					anotherLession.setIndex(match.group(2));
 					
-					// ½«Ğ£Çø·Ö¿ª
+					// å°†æ ¡åŒºåˆ†å¼€
 					pattern = Pattern.compile(reg);
 					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getSchoolArea()));
 					match.find();
 					oneLession.setSchoolArea(match.group(1));
 					anotherLession.setSchoolArea(match.group(2));
 					
-					// ½«½ÌÑ§Â¥·Ö¿ª
+					// å°†æ•™å­¦æ¥¼åˆ†å¼€
 					pattern = Pattern.compile(reg);
 					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getPlace()));
 					match.find();
 					oneLession.setPlace(match.group(1));
 					anotherLession.setPlace(match.group(2));
 					
-					// ½«½ÌÊÒ·Ö¿ª
+					// å°†æ•™å®¤åˆ†å¼€
 					pattern = Pattern.compile(reg);
 					match = pattern.matcher(StringUtils.deleteWhitespace(ls.getClassRoom()));
 					match.find();
 					oneLession.setClassRoom(match.group(1));
 					anotherLession.setClassRoom(match.group(2));
 					
-					// ÀûÓÃĞÇÆÚÊı½«Á½½Ú¿Î·Ö±ğadd½øÏàÓ¦µÄList
+					// åˆ©ç”¨æ˜ŸæœŸæ•°å°†ä¸¤èŠ‚è¯¾åˆ†åˆ«addè¿›ç›¸åº”çš„List
 					this.selectWithWeekNum(Integer.valueOf(oneLession.getWeek()), oneLession);
 					this.selectWithWeekNum(Integer.valueOf(anotherLession.getWeek()), anotherLession);
 				}
 				else {
-					// Ò»ÖÜÖ»ÉÏÒ»´Î
+					// ä¸€å‘¨åªä¸Šä¸€æ¬¡
 					this.selectWithWeekNum(Integer.valueOf(chooseStr), ls);
 				}
 					
 			}
 		}
 		
-		// ÎªÃ¿¸öListÅÅĞò
+		// ä¸ºæ¯ä¸ªListæ’åº
 		this.sortWithIndexNum();
 		
 		
 	}
 	
 	/**
-	 * ÓÃ½ÚÊı¶Ô¿Î½øĞĞÅÅĞò£¨´ÓÔçµ½Íí£©
+	 * ç”¨èŠ‚æ•°å¯¹è¯¾è¿›è¡Œæ’åºï¼ˆä»æ—©åˆ°æ™šï¼‰
 	 */
 	private void sortWithIndexNum() {
 		this._sortEachList(lessionsThursday);
@@ -210,7 +210,7 @@ public class CourseTable {
 	}
 	
 	/**
-	 * ¾ßÌåÅÅĞòÄ³¸öList
+	 * å…·ä½“æ’åºæŸä¸ªList
 	 */
 	private void _sortEachList(List<Lession> lst) {
 		Collections.sort(lst, new Comparator<Lession>() {
@@ -236,9 +236,9 @@ public class CourseTable {
 	}
 	
 	/**
-	 * ¸ù¾İĞÇÆÚÊıadd½ø¶ÔÓ¦µÄList
-	 * @param x ĞÇÆÚÊı
-	 * @param ls addµÄLession
+	 * æ ¹æ®æ˜ŸæœŸæ•°addè¿›å¯¹åº”çš„List
+	 * @param x æ˜ŸæœŸæ•°
+	 * @param ls addçš„Lession
 	 */
 	private void selectWithWeekNum(int x, Lession ls) {
 		switch (x) {
@@ -268,7 +268,7 @@ public class CourseTable {
 	}
 	
 	/**
-	 * »ñµÃ×ÜÑ§·Ö
+	 * è·å¾—æ€»å­¦åˆ†
 	 * @return
 	 */
 	public String getAllScore() {
@@ -276,7 +276,7 @@ public class CourseTable {
 	}
 	
 	/**
-	 * ÉèÖÃ×ÜÑ§·Ö
+	 * è®¾ç½®æ€»å­¦åˆ†
 	 * @param allScore
 	 */
 	void setAllScore(String allScore) {
@@ -284,64 +284,64 @@ public class CourseTable {
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÖÜÒ»¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜÒ»¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å‘¨ä¸€è¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨ä¸€è¯¾çš„List
 	 */
 	public List<Lession> getMonday() { 
 		return this.lessionsMonday;
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÖÜ¶ş¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜ¶ş¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å‘¨äºŒè¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨äºŒè¯¾çš„List
 	 */
 	public List<Lession> getTuesday() {
 		return this.lessionsTuesday;
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÖÜÈı¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜÈı¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å‘¨ä¸‰è¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨ä¸‰è¯¾çš„List
 	 */
 	public List<Lession> getWednesday() {
 		return this.lessionsWednesday;
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÖÜËÄ¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜËÄ¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å‘¨å››è¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨å››è¯¾çš„List
 	 */
 	public List<Lession> getThursday() {
 		return this.lessionsThursday;
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÖÜÎå¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜÎå¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å‘¨äº”è¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨äº”è¯¾çš„List
 	 */
 	public List<Lession> getFriday() {
 		return this.lessionsFriday;
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÖÜÁù¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜÁù¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å‘¨å…­è¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨å…­è¯¾çš„List
 	 */
 	public List<Lession> getSaturday() {
 		return this.lessionsSaturday;
 	}
 	
 	/**
-	 * »ñÈ¡´¢´æÖÜÌì¿ÎµÄList£¨ÒÑÅÅĞò£©
-	 * @return °üº¬È«²¿ÖÜÌì¿ÎµÄList
+	 * è·å–å‚¨å­˜å‘¨å¤©è¯¾çš„Listï¼ˆå·²æ’åºï¼‰
+	 * @return åŒ…å«å…¨éƒ¨å‘¨å¤©è¯¾çš„List
 	 */
 	public List<Lession> getSunday() {
 		return this.lessionsSunday;
 	}
 	
 	/**
-	 * »ñÈ¡°üº¬È«²¿ÆäËû¿ÎµÄList
-	 * @return °üº¬È«²¿ÆäËû¿ÎµÄList
+	 * è·å–åŒ…å«å…¨éƒ¨å…¶ä»–è¯¾çš„List
+	 * @return åŒ…å«å…¨éƒ¨å…¶ä»–è¯¾çš„List
 	 */
 	public List<Lession> getOtherLession() {
 		return this.lessionsOther;

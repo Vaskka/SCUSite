@@ -1,7 +1,7 @@
 package com.vaskka.spiderscu;
 
 /**
- * debugÄÚ²¿Àà
+ * debugå†…éƒ¨ç±»
  * @author czm
  *
  */
@@ -9,8 +9,8 @@ class Debug {
 	static boolean DEBUG = true;
 	
 	/**
-	 * ¿ØÖÆÌ¨Êä³öLOG
-	 * @param message LOGÄÚÈİ
+	 * æ§åˆ¶å°è¾“å‡ºLOG
+	 * @param message LOGå†…å®¹
 	 */
 	static void L(String message) {
 		if (DEBUG) {

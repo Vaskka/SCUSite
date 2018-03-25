@@ -1,89 +1,89 @@
 package com.vaskka.spiderscu;
 
 /**
- * ¿Î³ÌĞÅÏ¢
+ * è¯¾ç¨‹ä¿¡æ¯
  * @author czm
  *
  */
 public class Lession {
 	
 	/**
-	 * ËùÔÚµÄĞÇÆÚÊı£¨e.g.ĞÇÆÚÒ»£©
+	 * æ‰€åœ¨çš„æ˜ŸæœŸæ•°ï¼ˆe.g.æ˜ŸæœŸä¸€ï¼‰
 	 */
 	private String week = "";
 	
 	/**
-	 * ¸Ã¿ÆµÄ½ÚÊı£¨e.g.µÚÈı½Ú£©
+	 * è¯¥ç§‘çš„èŠ‚æ•°ï¼ˆe.g.ç¬¬ä¸‰èŠ‚ï¼‰
 	 */
 	private String index = "";
 	
 	/**
-	 * ¿Î³ÌÃû
+	 * è¯¾ç¨‹å
 	 */
 	private String name = "";
 	
 	/**
-	 * ÉÏ¿ÎµØµã
+	 * ä¸Šè¯¾åœ°ç‚¹
 	 */
 	private String place = "";
 	
 	/**
-	 * ¿ÎĞòºÅ
+	 * è¯¾åºå·
 	 */
 	private String lessionIndexNum = "";
 	
 	/**
-	 * ¿Î³ÌºÅ
+	 * è¯¾ç¨‹å·
 	 */
 	private String lessionNum = "";
 	
 	/**
-	 * Ñ§·Ö
+	 * å­¦åˆ†
 	 */
 	private String score = "";
 	
 	/**
-	 * ¿Î³ÌÊôĞÔ
+	 * è¯¾ç¨‹å±æ€§
 	 */
 	private String attr = "";
 	
 	/**
-	 * ¿¼²ìÀàĞÍ
+	 * è€ƒå¯Ÿç±»å‹
 	 */
 	private String exam = "";
 	
 	/**
-	 * ½ÌÊ¦
+	 * æ•™å¸ˆ
 	 */
 	private String teacher = "";
 	
 	/**
-	 * ĞŞ¶Á·½Ê½
+	 * ä¿®è¯»æ–¹å¼
 	 */
 	private String readWay = "";
 	
 	/**
-	 * Ñ¡¿Î×´Ì¬
+	 * é€‰è¯¾çŠ¶æ€
 	 */
 	private String chooseState = "";
 	
 	/**
-	 * ÖÜ´Î
+	 * å‘¨æ¬¡
 	 */
 	private String weekNum = "";
 
 	/**
-	 * Ğ£Çø
+	 * æ ¡åŒº
 	 */
 	private String schoolArea = "";
 	
 	/**
-	 * ½ÌÊÒ
+	 * æ•™å®¤
 	 */
 	private String classRoom = "";
 
 	/**
-	 * »ñÈ¡ĞÇÆÚÊı
+	 * è·å–æ˜ŸæœŸæ•°
 	 * @return the week
 	 */
 	public String getWeek() {
@@ -91,7 +91,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃĞÇÆÚÊı
+	 * è®¾ç½®æ˜ŸæœŸæ•°
 	 * @param week the week to set
 	 */
 	public void setWeek(String week) {
@@ -99,15 +99,15 @@ public class Lession {
 	}
 	
 	/**
-	 * ×·¼ÓĞÇÆÚÊıĞÅÏ¢
-	 * @param week ×·¼ÓµÄĞÅÏ¢Êı
+	 * è¿½åŠ æ˜ŸæœŸæ•°ä¿¡æ¯
+	 * @param week è¿½åŠ çš„ä¿¡æ¯æ•°
 	 */
 	public void addWeek(String week) {
 		this.week += week;
 	}
 
 	/**
-	 * »ñÈ¡½ÚÊı
+	 * è·å–èŠ‚æ•°
 	 * @return the index
 	 */
 	public String getIndex() {
@@ -115,7 +115,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ½ÚÊı
+	 * è®¾ç½®èŠ‚æ•°
 	 * @param index the index to set
 	 */
 	public void setIndex(String index) {
@@ -123,15 +123,15 @@ public class Lession {
 	}
 	
 	/**
-	 * ×·¼Ó½ÚÊıĞÅÏ¢
-	 * @param index ×·¼ÓµÄ½ÚÊı
+	 * è¿½åŠ èŠ‚æ•°ä¿¡æ¯
+	 * @param index è¿½åŠ çš„èŠ‚æ•°
 	 */
 	public void addIndex(String index) {
 		this.index += index;
 	}
 	
 	/**
-	 * »ñÈ¡¿Î³ÌÃû
+	 * è·å–è¯¾ç¨‹å
 	 * @return the name
 	 */
 	public String getName() {
@@ -139,7 +139,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ¿Î³ÌÃû
+	 * è®¾ç½®è¯¾ç¨‹å
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
@@ -147,7 +147,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡ÉÏ¿ÎµØµã
+	 * è·å–ä¸Šè¯¾åœ°ç‚¹
 	 * @return the place
 	 */
 	public String getPlace() {
@@ -155,7 +155,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃÉÏ¿ÎµØµã
+	 * è®¾ç½®ä¸Šè¯¾åœ°ç‚¹
 	 * @param place the place to set
 	 */
 	public void setPlace(String place) {
@@ -163,7 +163,7 @@ public class Lession {
 	}
 	
 	/**
-	 * ×·¼ÓÉÏ¿ÎµØµãĞÅÏ¢
+	 * è¿½åŠ ä¸Šè¯¾åœ°ç‚¹ä¿¡æ¯
 	 * @param place
 	 */
 	public void addPlace(String place) {
@@ -171,7 +171,7 @@ public class Lession {
 	}
 	
 	/**
-	 * »ñÈ¡¿ÎĞòºÅ
+	 * è·å–è¯¾åºå·
 	 * @return the lessionIndexNum
 	 */
 	public String getLessionIndexNum() {
@@ -179,7 +179,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ¿ÎĞòºÅ
+	 * è®¾ç½®è¯¾åºå·
 	 * @param lessionIndexNum the lessionIndexNum to set
 	 */
 	public void setLessionIndexNum(String lessionIndexNum) {
@@ -187,7 +187,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡¿Î³ÌºÅ
+	 * è·å–è¯¾ç¨‹å·
 	 * @return the lessionNum
 	 */
 	public String getLessionNum() {
@@ -195,7 +195,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ¿Î³ÌºÅ
+	 * è®¾ç½®è¯¾ç¨‹å·
 	 * @param lessionNum the lessionNum to set
 	 */
 	public void setLessionNum(String lessionNum) {
@@ -203,7 +203,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡Ñ§·ÖÊı
+	 * è·å–å­¦åˆ†æ•°
 	 * @return the score
 	 */
 	public String getScore() {
@@ -211,7 +211,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃÑ§·ÖÊı
+	 * è®¾ç½®å­¦åˆ†æ•°
 	 * @param score the score to set
 	 */
 	public void setScore(String score) {
@@ -219,7 +219,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡¿Î³ÌÊôĞÔ£¨ÈÎÑ¡ Ñ¡ĞŞ ±ØĞŞ£©
+	 * è·å–è¯¾ç¨‹å±æ€§ï¼ˆä»»é€‰ é€‰ä¿® å¿…ä¿®ï¼‰
 	 * @return the attr
 	 */
 	public String getAttr() {
@@ -227,7 +227,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ¿Î³ÌÊôĞÔ
+	 * è®¾ç½®è¯¾ç¨‹å±æ€§
 	 * @param attr the attr to set
 	 */
 	public void setAttr(String attr) {
@@ -235,7 +235,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡¿¼ÊÔ·½Ê½
+	 * è·å–è€ƒè¯•æ–¹å¼
 	 * @return the exam
 	 */
 	public String getExam() {
@@ -243,7 +243,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ¿¼ÊÔ·½Ê½
+	 * è®¾ç½®è€ƒè¯•æ–¹å¼
 	 * @param exam the exam to set
 	 */
 	public void setExam(String exam) {
@@ -251,7 +251,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡½ÌÊ¦ĞÕÃû
+	 * è·å–æ•™å¸ˆå§“å
 	 * @return the teacher
 	 */
 	public String getTeacher() {
@@ -259,7 +259,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃ½ÌÊ¦ĞÕÃû
+	 * è®¾ç½®æ•™å¸ˆå§“å
 	 * @param teacher the teacher to set
 	 */
 	public void setTeacher(String teacher) {
@@ -267,7 +267,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡ĞŞ¶Á·½Ê½
+	 * è·å–ä¿®è¯»æ–¹å¼
 	 * @return the readWay
 	 */
 	public String getReadWay() {
@@ -275,7 +275,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃĞŞ¶Á·½Ê½
+	 * è®¾ç½®ä¿®è¯»æ–¹å¼
 	 * @param readWay the readWay to set
 	 */
 	public void setReadWay(String readWay) {
@@ -283,7 +283,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡Ñ¡¿Î×´Ì¬
+	 * è·å–é€‰è¯¾çŠ¶æ€
 	 * @return the chooseState
 	 */
 	public String getChooseState() {
@@ -291,7 +291,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃÑ¡¿Î×´Ì¬
+	 * è®¾ç½®é€‰è¯¾çŠ¶æ€
 	 * @param chooseState the chooseState to set
 	 */
 	public void setChooseState(String chooseState) {
@@ -299,7 +299,7 @@ public class Lession {
 	}
 
 	/**
-	 * »ñÈ¡ÖÜ´Î
+	 * è·å–å‘¨æ¬¡
 	 * @return the weekNum
 	 */
 	public String getWeekNum() {
@@ -307,7 +307,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃÖÜ´Î
+	 * è®¾ç½®å‘¨æ¬¡
 	 * @param weekNum the weekNum to set
 	 */
 	public void setWeekNum(String weekNum) {
@@ -315,15 +315,15 @@ public class Lession {
 	}
 	
 	/**
-	 * ×·¼ÓÖÜ´ÎĞÅÏ¢
-	 * @param weekNum ×·¼ÓµÄÖÜ´Î
+	 * è¿½åŠ å‘¨æ¬¡ä¿¡æ¯
+	 * @param weekNum è¿½åŠ çš„å‘¨æ¬¡
 	 */
 	public void addWeekNum(String weekNum) {
 		this.weekNum += weekNum;
 	}
 	
 	/**
-	 * »ñÈ¡Ğ£Çø
+	 * è·å–æ ¡åŒº
 	 * @return the schoolArea
 	 */
 	public String getSchoolArea() {
@@ -331,7 +331,7 @@ public class Lession {
 	}
 
 	/**
-	 * ÉèÖÃĞ£Çø
+	 * è®¾ç½®æ ¡åŒº
 	 * @param schoolArea the schoolArea to set
 	 */
 	public void setSchoolArea(String schoolArea) {
@@ -339,7 +339,7 @@ public class Lession {
 	}
 	
 	/**
-	 * ×·¼ÓĞ£ÇøĞÅÏ¢
+	 * è¿½åŠ æ ¡åŒºä¿¡æ¯
 	 * @param schoolArea
 	 */
 	public void addSchoolArea(String schoolArea) {
@@ -347,23 +347,23 @@ public class Lession {
 	}
 	
 	/**
-	 * »ñÈ¡½ÌÊÒ
-	 * @return ÉÏ¿Î½ÌÊÒ
+	 * è·å–æ•™å®¤
+	 * @return ä¸Šè¯¾æ•™å®¤
 	 */
 	public String getClassRoom() {
 		return classRoom;
 	}
 	
 	/**
-	 * »ñÈ¡½ÌÊÒ
-	 * @param classRoom ÉÏ¿ÎµÄ½ÌÊÒ
+	 * è·å–æ•™å®¤
+	 * @param classRoom ä¸Šè¯¾çš„æ•™å®¤
 	 */
 	public void setClassRoom(String classRoom) {
 		this.classRoom = classRoom;
 	}
 	
 	/**
-	 * ×·¼Ó½ÌÊÒĞÅÏ¢
+	 * è¿½åŠ æ•™å®¤ä¿¡æ¯
 	 * @param classRoom
 	 */
 	public void addClassRoom(String classRoom) {
@@ -371,7 +371,7 @@ public class Lession {
 	}
 	
 	/**
-	 * debugÓÃ
+	 * debugç”¨
 	 */
 	void debugAllInfo() {
 		Debug.L(this.lessionNum);
@@ -394,7 +394,7 @@ public class Lession {
 	
 	
 	/**
-	 * deepcopy µÃµ½LessionĞÂÊµÀı
+	 * deepcopy å¾—åˆ°Lessionæ–°å®ä¾‹
 	 */
 	@Override
 	public Object clone() {
